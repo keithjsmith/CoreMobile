@@ -1,0 +1,145 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CoREMobile.Views.ListingSummary"
+             xmlns:vm="clr-namespace:CoREMobile.ViewModels;"
+             xmlns:ef="clr-namespace:CoREMobile.Effects"
+             Title="{Binding Title}"
+             Padding="0">
+    <ContentPage.Content>
+
+      
+        <StackLayout BackgroundColor="White" Padding="0" Margin="0" Spacing="0">  
+            <!-- top controls -->
+            <Grid HorizontalOptions="FillAndExpand" VerticalOptions="Start" ColumnSpacing="0" RowSpacing="0" Padding="0" Margin="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="1.5*"  />
+
+                </Grid.RowDefinitions>
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width=".01*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <Button x:Name="btn_AddListing" BorderColor="Transparent" TextColor="Black" BackgroundColor="Transparent" Image="plus_icon_32.png" Text="Add Listing" Grid.Column="0" Grid.Row="0">
+                    <Button.Effects>
+                        <ef:TransparentSelectableEffect />
+                    </Button.Effects>
+                </Button>
+                <BoxView WidthRequest="1" Margin="0" BackgroundColor="LightGray" VerticalOptions="FillAndExpand" 
+                             Grid.Column="1" Grid.Row="0"></BoxView>
+                <Button x:Name="btn_CallUs" BorderColor="Transparent" TextColor="Black" BackgroundColor="Transparent" Text="Call Us" Image="phone_icon_32.png" Grid.Column="2" Grid.Row="0">
+                    <Button.Effects>
+                        <ef:TransparentSelectableEffect />
+                    </Button.Effects>
+                </Button>
+            </Grid>
+
+            <!-- middle controls -->
+            <ListView ItemsSource="{Binding Listings}" BackgroundColor="Transparent" x:Name="lv_ListingSummary"
+
+                ItemSelected="ListView_ItemSelected"
+                HasUnevenRows="true"
+                RefreshCommand="{Binding LoadListingsCommand}"
+                IsPullToRefreshEnabled="true"
+                      SeparatorVisibility="None"
+                IsRefreshing="{Binding IsBusy, Mode=OneWay}"
+                CachingStrategy="RecycleElement">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <RelativeLayout Margin="0,3,0,0">
+                                <Image Source="{Binding ListingImageUrl}" Aspect="Fill" HeightRequest="130" BackgroundColor="Transparent"></Image>
+
+                                <!--<BoxView HeightRequest="2" WidthRequest="500" Margin="0" BackgroundColor="Black" HorizontalOptions="Fill"></BoxView>-->
+
+                                <Grid Padding="10,3,10,0" HeightRequest="130" RowSpacing="0" HorizontalOptions="Fill" BackgroundColor="#45000000" x:Name="grid_Listing">
+
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="1.5*"  />
+                                        <RowDefinition Height="*" />
+                                        <RowDefinition Height="*" />
+                                        <RowDefinition Height="1.5*" />
+                                        <RowDefinition Height=".8*" />
+                                        <RowDefinition Height=".6*" />
+                                        <RowDefinition Height="0" />
+                                    </Grid.RowDefinitions>
+
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="4*" />
+                                        <ColumnDefinition Width="*" />
+                                    </Grid.ColumnDefinitions>
+
+                                    <Label Grid.ColumnSpan ="1" Grid.Column="0" Grid.Row="0" FontAttributes="Bold" FontSize="24"
+                                   Text="{Binding DisplayAddress}" TextColor="White" HorizontalTextAlignment="Start" 
+                                   VerticalTextAlignment="Center" LineBreakMode="NoWrap" Style="{DynamicResource ListItemTextStyle}"></Label>
+                                    <Label Grid.ColumnSpan ="1" Grid.Column="0" Grid.Row="1" Text="{Binding DisplaySaleType}"
+                                   LineBreakMode="NoWrap" TextColor="White" 
+                                   Style="{DynamicResource ListItemTextStyle}"
+                                   FontSize="12"/>
+                                    <Label Grid.ColumnSpan ="1" Grid.Column="0" Grid.Row="2" Text="{Binding DisplayLeaseType}"
+                                   LineBreakMode="NoWrap" TextColor="White" 
+                                   Style="{DynamicResource ListItemTextStyle}" HorizontalTextAlignment="Start"
+                                   FontSize="12"/>
+                                    <Label Grid.ColumnSpan ="1" Grid.Column="1" Grid.Row="2" Text="{Binding ListingNotes}"
+                                   LineBreakMode="NoWrap" TextColor="White" 
+                                   Style="{DynamicResource ListItemTextStyle}" HorizontalTextAlignment="End"
+                                   FontSize="12"/>
+                                    <Label Grid.ColumnSpan ="1" Grid.Column="1" Grid.Row="4" Text="Last Updated"
+                                   LineBreakMode="NoWrap" TextColor="White" FontAttributes="Bold"
+                                   Style="{DynamicResource ListItemTextStyle}" HorizontalTextAlignment="End"
+                                   FontSize="10"/>
+                                    <Label Grid.ColumnSpan ="1" Grid.Column="1" Grid.Row="5" Text="42 days ago"
+                                   LineBreakMode="NoWrap" TextColor="White" FontAttributes="Bold"
+                                   Style="{DynamicResource ListItemTextStyle}" HorizontalTextAlignment="Center"
+                                   FontSize="8"/>
+                                </Grid>
+
+                            </RelativeLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+                <ListView.Footer>
+                    <Label />
+                </ListView.Footer>
+            </ListView>
+
+            <!-- bottom controls -->
+            <!--<StackLayout Orientation="Horizontal" VerticalOptions="End" Padding="0,0,0,10">-->
+                <Grid HorizontalOptions="FillAndExpand" VerticalOptions="End" Padding="0,0,0,10">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"  />
+                    </Grid.RowDefinitions>
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+
+                    <Button x:Name="btn_AddListing2" BorderWidth="0" HorizontalOptions="StartAndExpand" BorderRadius="0" BorderColor="White" TextColor="Black" BackgroundColor="Transparent" Image="filter_icon_64.png" Text="Filter" Grid.Column="0" Grid.Row="0">
+                        <Button.Effects>
+                            <ef:TransparentSelectableEffect />
+                        </Button.Effects>
+                    </Button>
+                    <Button x:Name="btn_CallUs3" BorderColor="White" TextColor="Black" BackgroundColor="Transparent" Text="Map" Image="map_icon_32.png" Grid.Column="1" Grid.Row="0">
+                        <Button.Effects>
+                            <ef:TransparentSelectableEffect />
+                        </Button.Effects>
+                    </Button>
+                    <Button x:Name="btn_CallUs2" BorderColor="White" TextColor="Black" BackgroundColor="Transparent" Text="Share" Image="share_icon_32.png" Grid.Column="2" Grid.Row="0">
+                        <Button.Effects>
+                            <ef:TransparentSelectableEffect />
+                        </Button.Effects>
+                    </Button>
+                </Grid>
+            <!--</StackLayout>-->
+        </StackLayout>
+
+    </ContentPage.Content>
+    <ContentPage.BindingContext>
+        <vm:ListingViewModel />
+    </ContentPage.BindingContext>
+</ContentPage>

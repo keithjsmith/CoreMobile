@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:ef="clr-namespace:CoREMobile.Effects"
+             xmlns:vm="clr-namespace:CoREMobile.ViewModels;"
+             x:Class="CoREMobile.Views.SuiteEdit">
+    <ContentPage.Content>
+
+    </ContentPage.Content>
+    <ContentPage.BindingContext>
+        <vm:SuiteViewModel />
+    </ContentPage.BindingContext>
+</ContentPage>

@@ -1,0 +1,81 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <PackageTargetFallback>$(PackageTargetFallback);portable-win+net45+wp8+win81+wpa8</PackageTargetFallback>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Remove="ViewModels\ItemsViewModel.cs" />
+    <Compile Remove="Views\ItemDetailPage.xaml.cs" />
+    <Compile Remove="Views\ItemsPage.xaml.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Remove="Views\ItemDetailPage.xaml" />
+    <EmbeddedResource Remove="Views\ItemsPage.xaml" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Xamarin.Forms" Version="2.5.0.91635" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="XRS.StandardVS17.BusinessEntities.CDX">
+      <HintPath>..\..\..\..\..\Xamarin Mobile Docs\3in1_Files\XRS-3n1-netstandard20\XRS.StandardVS17.BusinessEntities.CDX.dll</HintPath>
+    </Reference>
+    <Reference Include="XRS.StandardVS17.BusinessEntities.SDEM">
+      <HintPath>..\..\..\..\..\Xamarin Mobile Docs\3in1_Files\XRS-3n1-netstandard20\XRS.StandardVS17.BusinessEntities.SDEM.dll</HintPath>
+    </Reference>
+    <Reference Include="XRS.StandardVS17.BusinessEntities.Security">
+      <HintPath>..\..\..\..\..\Xamarin Mobile Docs\3in1_Files\XRS-3n1-netstandard20\XRS.StandardVS17.BusinessEntities.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="XRS.StandardVS17.BusinessEntities.Shared">
+      <HintPath>..\..\..\..\..\Xamarin Mobile Docs\3in1_Files\XRS-3n1-netstandard20\XRS.StandardVS17.BusinessEntities.Shared.dll</HintPath>
+    </Reference>
+    <Reference Include="XRS.StandardVS17.PresentationLogic.CDX">
+      <HintPath>..\..\..\..\..\Xamarin Mobile Docs\3in1_Files\XRS-3n1-netstandard20\XRS.StandardVS17.PresentationLogic.CDX.dll</HintPath>
+    </Reference>
+    <Reference Include="XRS.StandardVS17.PresentationLogic.SDEM">
+      <HintPath>..\..\..\..\..\Xamarin Mobile Docs\3in1_Files\XRS-3n1-netstandard20\XRS.StandardVS17.PresentationLogic.SDEM.dll</HintPath>
+    </Reference>
+    <Reference Include="XRS.StandardVS17.PresentationLogic.Security">
+      <HintPath>..\..\..\..\..\Xamarin Mobile Docs\3in1_Files\XRS-3n1-netstandard20\XRS.StandardVS17.PresentationLogic.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="XRS.StandardVS17.PresentationLogic.Shared">
+      <HintPath>..\..\..\..\..\Xamarin Mobile Docs\3in1_Files\XRS-3n1-netstandard20\XRS.StandardVS17.PresentationLogic.Shared.dll</HintPath>
+    </Reference>
+    <Reference Include="XRS.StandardVS17.PresentationProperty.CDX">
+      <HintPath>..\..\..\..\..\Xamarin Mobile Docs\3in1_Files\XRS-3n1-netstandard20\XRS.StandardVS17.PresentationProperty.CDX.dll</HintPath>
+    </Reference>
+    <Reference Include="XRS.StandardVS17.PresentationProperty.SDEM">
+      <HintPath>..\..\..\..\..\Xamarin Mobile Docs\3in1_Files\XRS-3n1-netstandard20\XRS.StandardVS17.PresentationProperty.SDEM.dll</HintPath>
+    </Reference>
+    <Reference Include="XRS.StandardVS17.PresentationProperty.Security">
+      <HintPath>..\..\..\..\..\Xamarin Mobile Docs\3in1_Files\XRS-3n1-netstandard20\XRS.StandardVS17.PresentationProperty.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="XRS.StandardVS17.SecureClientProxy.CDX">
+      <HintPath>..\..\..\..\..\Xamarin Mobile Docs\3in1_Files\XRS-3n1-netstandard20\XRS.StandardVS17.SecureClientProxy.CDX.dll</HintPath>
+    </Reference>
+    <Reference Include="XRS.StandardVS17.SecureClientProxy.SDEM">
+      <HintPath>..\..\..\..\..\Xamarin Mobile Docs\3in1_Files\XRS-3n1-netstandard20\XRS.StandardVS17.SecureClientProxy.SDEM.dll</HintPath>
+    </Reference>
+    <Reference Include="XRS.StandardVS17.SecureClientProxy.Security">
+      <HintPath>..\..\..\..\..\Xamarin Mobile Docs\3in1_Files\XRS-3n1-netstandard20\XRS.StandardVS17.SecureClientProxy.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="XRS.StandardVS17.Shared">
+      <HintPath>..\..\..\..\..\Xamarin Mobile Docs\3in1_Files\XRS-3n1-netstandard20\XRS.StandardVS17.Shared.dll</HintPath>
+    </Reference>
+    <Reference Include="XRS.StandardVS17.Shared.Application">
+      <HintPath>..\..\..\..\..\Xamarin Mobile Docs\3in1_Files\XRS-3n1-netstandard20\XRS.StandardVS17.Shared.Application.dll</HintPath>
+    </Reference>
+    <Reference Include="XRS.StandardVS17.Shared.BusinessLogic">
+      <HintPath>..\..\..\..\..\Xamarin Mobile Docs\3in1_Files\XRS-3n1-netstandard20\XRS.StandardVS17.Shared.BusinessLogic.dll</HintPath>
+    </Reference>
+    <Reference Include="XRS.StandardVS17.Shared.Compression">
+      <HintPath>..\..\..\..\..\Xamarin Mobile Docs\3in1_Files\XRS-3n1-netstandard20\XRS.StandardVS17.Shared.Compression.dll</HintPath>
+    </Reference>
+    <Reference Include="XRS.StandardVS17.Shared.PresentationLogic">
+      <HintPath>..\..\..\..\..\Xamarin Mobile Docs\3in1_Files\XRS-3n1-netstandard20\XRS.StandardVS17.Shared.PresentationLogic.dll</HintPath>
+    </Reference>
+    <Reference Include="XRS.StandardVS17.Shared.RemoteException">
+      <HintPath>..\..\..\..\..\Xamarin Mobile Docs\3in1_Files\XRS-3n1-netstandard20\XRS.StandardVS17.Shared.RemoteException.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+</Project>
